@@ -35,15 +35,6 @@ class InvoiceController extends AbstractController
         $this->logger = $logger;
     }
 
-    #[Route('/invoice', name: 'app_invoice')]
-    public function index(): JsonResponse
-    {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/InvoiceController.php',
-        ]);
-    }
-
     #[Route('/invoices', name: 'save_invoice', methods: ['POST'])]
     public function saveInvoice(Request $request, ValidatorInterface $validator): JsonResponse
     {
