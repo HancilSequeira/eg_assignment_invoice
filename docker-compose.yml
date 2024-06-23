@@ -1,0 +1,35 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "2.0"
+services:
+
+    webserver:
+      image: nginx:alpine
+      container_name: eg-assignment2-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8080:80"
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: eg-assignment2-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini
+    db:
+        image: mysql
+        container_name: eg-assignment2-sql
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: myRootPw
+            MYSQL_DATABASE: EGAssignment
+            MYSQL_USER: user
+            MYSQL_PASSWORD: user
+
