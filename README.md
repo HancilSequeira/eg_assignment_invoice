@@ -20,7 +20,7 @@
     
    
    ```
-* Now run docker container using this `docker exec -it eg-assignment-php2-fpm bash`
+* Now run docker container using this `docker exec -it eg-assignment2-php-fpm bash`
 * Once inside the docker run `composer install`   
 * Update the DB by using the following
     ```
