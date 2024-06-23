@@ -176,7 +176,7 @@ class InvoiceService
                 }
                 return [
                     "code" => Response::HTTP_CREATED,
-                    "message" => "Pending invoiced processed Successfully",
+                    "message" => "Pending invoice processed Successfully",
                     "data" => ""
                 ];
 
